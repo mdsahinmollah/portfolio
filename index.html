@@ -1,0 +1,2205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md Sahin Mollah - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #6a11cb;
+            --secondary-color: #2575fc;
+            --accent-color: #4cc9f0;
+            --bg-color: #f8f9fa;
+            --text-color: #212529;
+            --card-bg: #ffffff;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --border-radius: 15px;
+            --name-color: #6a11cb;
+            --name-color-dark: #9d50bb;
+        }
+        [data-theme="dark"] {
+            --primary-color: #4cc9f0;
+            --secondary-color: #6a11cb;
+            --accent-color: #f72585;
+            --bg-color: #121212;
+            --text-color: #f8f9fa;
+            --card-bg: #1e1e1e;
+            --shadow: rgba(255, 255, 255, 0.1);
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: all 0.3s ease;
+        }
+        /* Modern Technical Background Animation */
+        .tech-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--bg-color) 0%, var(--card-bg) 100%);
+        }
+        /* Small Technical Elements Animation */
+        .tech-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        /* Binary Code Rain */
+        .binary-rain {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            opacity: 0.05;
+        }
+        .binary-column {
+            position: absolute;
+            top: -100%;
+            font-family: monospace;
+            font-size: 14px;
+            line-height: 1.2;
+            color: var(--primary-color);
+            animation: binary-fall linear infinite;
+        }
+        @keyframes binary-fall {
+            to {
+                transform: translateY(calc(100vh + 100%));
+            }
+        }
+        /* Floating Tech Icons */
+        .tech-icon {
+            position: absolute;
+            font-size: 20px;
+            color: var(--primary-color);
+            opacity: 0.07;
+            animation: float-icon 20s infinite ease-in-out;
+        }
+        @keyframes float-icon {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-30px) rotate(10deg);
+            }
+        }
+        /* Circuit Board Pattern */
+        .circuit-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 1px 1px, var(--primary-color) 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.03;
+            animation: circuit-move 20s linear infinite;
+        }
+        @keyframes circuit-move {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 30px 30px;
+            }
+        }
+        /* Small Particles */
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: particle-float 15s infinite ease-in-out;
+        }
+        @keyframes particle-float {
+            0%, 100% {
+                transform: translate(0, 0);
+            }
+            25% {
+                transform: translate(10px, -15px);
+            }
+            50% {
+                transform: translate(0, -30px);
+            }
+            75% {
+                transform: translate(-10px, -15px);
+            }
+        }
+        /* Header and Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        [data-theme="dark"] header {
+            background: rgba(0, 0, 0, 0.2);
+        }
+        header.sticky {
+            padding: 15px 100px;
+            background: var(--card-bg);
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary-color);
+            box-shadow: 0 5px 15px var(--shadow);
+            transition: all 0.3s ease;
+        }
+        .logo:hover {
+            transform: scale(1.05);
+            border-color: var(--accent-color);
+        }
+        .site-name {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--name-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        [data-theme="dark"] .site-name {
+            color: var(--name-color-dark);
+        }
+        .navbar {
+            display: flex;
+            gap: 30px;
+        }
+        .navbar a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .navbar a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        .navbar a:hover::after {
+            width: 100%;
+        }
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+        .theme-toggle:hover {
+            color: var(--primary-color);
+        }
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 100px;
+            position: relative;
+        }
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            gap: 30px;
+        }
+        .hero-image {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .profile-img-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .profile-img {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary-color);
+            box-shadow: 0 10px 30px var(--shadow);
+            animation: float 6s ease-in-out infinite;
+            transition: all 0.5s ease;
+        }
+        .profile-img:hover {
+            transform: scale(1.05);
+            border-color: var(--accent-color);
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        /* Profile titles in a single line */
+        .profile-titles {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: nowrap;
+            justify-content: center;
+        }
+        .profile-title {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--primary-color);
+            padding: 8px 15px;
+            border: 1px solid var(--primary-color);
+            border-radius: 20px;
+            opacity: 0.9;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        .profile-title:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+        .hero-text {
+            text-align: center;
+            max-width: 800px;
+        }
+        .greeting {
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        .name {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            color: var(--name-color);
+        }
+        [data-theme="dark"] .name {
+            color: var(--name-color-dark);
+        }
+        .typewriter {
+            font-size: 20px;
+            font-weight: 400;
+            margin-bottom: 30px;
+            min-height: 30px;
+        }
+        .typewriter span {
+            border-right: 2px solid var(--primary-color);
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 100% {
+                border-color: var(--primary-color);
+            }
+            50% {
+                border-color: transparent;
+            }
+        }
+        /* Button group in a single line */
+        .button-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: nowrap;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 25px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px var(--shadow);
+        }
+        .btn i {
+            font-size: 16px;
+        }
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px var(--shadow);
+            border: 2px solid transparent;
+        }
+        .social-icon:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px var(--shadow);
+        }
+        /* Section Styling */
+        section {
+            padding: 100px;
+            position: relative;
+        }
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .section-title i {
+            color: var(--primary-color);
+            margin-right: 15px;
+            font-size: 32px;
+            vertical-align: middle;
+        }
+        .section-title span {
+            border-right: 2px solid var(--primary-color);
+            animation: blink 1s infinite;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        /* About Section */
+        .about-content {
+            width: 100%;
+            text-align: center;
+        }
+        .bio-typewriter {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            min-height: 120px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            padding: 20px;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px var(--shadow);
+        }
+        .bio-typewriter span {
+            border-right: 2px solid var(--primary-color);
+            animation: blink 1s infinite;
+        }
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .skill-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: all 0.3s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--primary-color);
+            transform: translateX(-100%);
+            transition: all 0.5s ease;
+        }
+        .skill-card:hover::before {
+            transform: translateX(0);
+        }
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px var(--shadow);
+        }
+        .skill-icon {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        .skill-card:hover .skill-icon {
+            transform: scale(1.2);
+            color: var(--accent-color);
+        }
+        .skill-name {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .skill-description {
+            font-size: 14px;
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: var(--primary-color);
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            width: 50%;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: 50px;
+            text-align: right;
+        }
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 50px;
+        }
+        .timeline-item:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+        .timeline-item:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+        .timeline-item:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .timeline-dot {
+            position: absolute;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px var(--bg-color), 0 0 0 6px var(--primary-color);
+            animation: pulse 2s infinite alternate;
+        }
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -10px;
+        }
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -10px;
+        }
+        .timeline-content {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: all 0.3s ease;
+        }
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px var(--shadow);
+        }
+        .timeline-date {
+            font-size: 14px;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        .timeline-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .timeline-company {
+            font-size: 16px;
+            color: var(--text-color);
+            opacity: 0.8;
+            margin-bottom: 15px;
+        }
+        .timeline-description {
+            font-size: 14px;
+            text-align: left;
+        }
+        .timeline-description ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin: 0;
+        }
+        .timeline-description li {
+            margin-bottom: 8px;
+        }
+        /* Education Section */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .education-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .education-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 80px;
+            height: 80px;
+            background: var(--primary-color);
+            opacity: 0.1;
+            border-radius: 0 0 0 80px;
+        }
+        .education-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px var(--shadow);
+        }
+        .education-degree {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        .education-school {
+            font-size: 16px;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        .education-date {
+            font-size: 14px;
+            color: var(--text-color);
+            opacity: 0.8;
+            position: relative;
+            z-index: 1;
+        }
+        /* Modern Contact Section */
+        .contact-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+        }
+        .contact-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: 0 15px 40px var(--shadow);
+            max-width: 800px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px var(--shadow);
+        }
+        .contact-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .contact-header h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        .contact-header p {
+            font-size: 16px;
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background: var(--bg-color);
+            border-radius: var(--border-radius);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--text-color);
+        }
+        .contact-info-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px var(--shadow);
+        }
+        .contact-info-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 20px;
+            font-size: 24px;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+        .contact-info-item:hover .contact-info-icon {
+            background: var(--accent-color);
+            transform: scale(1.1);
+        }
+        .contact-info-text {
+            flex: 1;
+            min-width: 0;
+        }
+        .contact-info-text h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .contact-info-text p {
+            font-size: 16px;
+            color: var(--text-color);
+            opacity: 0.8;
+            word-break: break-all;
+            overflow-wrap: break-word;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .social-link {
+            width: 60px;
+            height: 60px;
+            background: var(--card-bg);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--primary-color);
+            font-size: 24px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px var(--shadow);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-color);
+            transform: scale(0);
+            transition: all 0.3s ease;
+            border-radius: 50%;
+            z-index: 0;
+        }
+        .social-link:hover::before {
+            transform: scale(1);
+        }
+        .social-link:hover {
+            color: white;
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+        .social-link i {
+            position: relative;
+            z-index: 1;
+        }
+        .contact-cta {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .contact-cta p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        /* Footer */
+        footer {
+            background: var(--card-bg);
+            padding: 30px 100px;
+            text-align: center;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        .footer-text {
+            font-size: 14px;
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            header {
+                padding: 20px 50px;
+            }
+            header.sticky {
+                padding: 15px 50px;
+            }
+            .hero {
+                padding: 100px 50px;
+            }
+            .profile-img {
+                width: 240px;
+                height: 240px;
+            }
+            section {
+                padding: 80px 50px;
+            }
+            .timeline::before {
+                left: 30px;
+            }
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px !important;
+                padding-right: 0 !important;
+                text-align: left !important;
+            }
+            .timeline-dot {
+                left: 20px !important;
+            }
+        }
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 30px;
+            }
+            header.sticky {
+                padding: 10px 30px;
+            }
+            .navbar {
+                display: none;
+            }
+            .hero {
+                padding: 80px 30px;
+            }
+            .name {
+                font-size: 36px;
+            }
+            .section-title {
+                font-size: 28px;
+            }
+            .section-title i {
+                font-size: 24px;
+                margin-right: 10px;
+            }
+            section {
+                padding: 60px 30px;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            .education-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+            footer {
+                padding: 20px 30px;
+            }
+        }
+        @media (max-width: 576px) {
+            .profile-img {
+                width: 200px;
+                height: 200px;
+            }
+            
+            /* Adjust profile titles for mobile */
+            .profile-titles {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            
+            .profile-title {
+                font-size: 14px;
+                padding: 6px 12px;
+            }
+            
+            /* Adjust button group for mobile */
+            .button-group {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .btn {
+                font-size: 14px;
+                padding: 10px 20px;
+            }
+            
+            /* Adjust contact info for mobile */
+            .contact-info-item {
+                flex-direction: column;
+                text-align: center;
+                padding: 15px;
+            }
+            
+            .contact-info-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            overflow: auto;
+        }
+        .modal-content {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow: auto;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: modalFadeIn 0.5s ease;
+        }
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .modal-header {
+            padding: 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .modal-title {
+            font-size: 24px;
+            font-weight: 600;
+        }
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+        .close-btn:hover {
+            color: var(--primary-color);
+            transform: rotate(90deg);
+        }
+        .modal-body {
+            padding: 40px;
+        }
+        .resume-container {
+            background: white;
+            color: #333;
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+        }
+        .resume-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 20px;
+        }
+        .resume-name {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        .resume-title {
+            font-size: 18px;
+            color: #555;
+            margin-top: 5px;
+        }
+        .resume-contact {
+            text-align: right;
+        }
+        .resume-contact p {
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        .resume-section {
+            margin-bottom: 30px;
+        }
+        .resume-section-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+        .resume-item {
+            margin-bottom: 20px;
+        }
+        .resume-item-title {
+            font-size: 16px;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+        }
+        .resume-item-date {
+            font-size: 14px;
+            color: #777;
+        }
+        .resume-item-subtitle {
+            font-size: 14px;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        .resume-item-description {
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        .resume-item-description ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin: 0;
+        }
+        .resume-item-description li {
+            margin-bottom: 5px;
+        }
+        .resume-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .resume-skill {
+            background: #f5f5f5;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        
+        /* Download notification */
+        .download-notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #4caf50;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 5px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 3000;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .download-notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .download-notification .close-notification {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        
+        /* Download options */
+        .download-options {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .download-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+            background: var(--bg-color);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--text-color);
+            width: 120px;
+        }
+        
+        .download-option:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px var(--shadow);
+        }
+        
+        .download-option i {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .download-option span {
+            font-size: 14px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <!-- Modern Technical Background Animation -->
+    <div class="tech-bg">
+        <div class="tech-elements">
+            <!-- Binary Rain -->
+            <div class="binary-rain"></div>
+            
+            <!-- Circuit Pattern -->
+            <div class="circuit-pattern"></div>
+            
+            <!-- Tech Icons -->
+            <i class="fas fa-code tech-icon" style="top: 10%; left: 5%; animation-delay: 0s;"></i>
+            <i class="fas fa-database tech-icon" style="top: 20%; right: 10%; animation-delay: 2s;"></i>
+            <i class="fas fa-network-wired tech-icon" style="bottom: 30%; left: 15%; animation-delay: 4s;"></i>
+            <i class="fas fa-server tech-icon" style="bottom: 10%; right: 20%; animation-delay: 6s;"></i>
+            <i class="fas fa-shield-alt tech-icon" style="top: 40%; left: 25%; animation-delay: 8s;"></i>
+            
+            <!-- Particles -->
+            <div class="particle" style="top: 15%; left: 10%;"></div>
+            <div class="particle" style="top: 25%; left: 30%;"></div>
+            <div class="particle" style="top: 35%; left: 50%;"></div>
+            <div class="particle" style="top: 45%; left: 70%;"></div>
+            <div class="particle" style="top: 55%; left: 90%;"></div>
+            <div class="particle" style="top: 65%; left: 20%;"></div>
+            <div class="particle" style="top: 75%; left: 40%;"></div>
+            <div class="particle" style="top: 85%; left: 60%;"></div>
+            <div class="particle" style="top: 95%; left: 80%;"></div>
+        </div>
+    </div>
+    <!-- Header -->
+    <header id="header">
+        <div class="logo-container">
+            <img src="https://z-cdn-media.chatglm.cn/files/3015e425-a28d-4d6a-83b6-796e499a6815_1757187544783.jpg?auth_key=1788852583-649db1e409ea4699a66efc26a451e017-0-a1f309e004c7f572f5aa2f1670835be9" alt="Logo" class="logo">
+            <a href="#" class="site-name">Md Sahin Mollah</a>
+        </div>
+        <nav class="navbar">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#education">Education</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <button class="theme-toggle" id="theme-toggle">
+            <i class="fas fa-moon"></i>
+        </button>
+    </header>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-image">
+                <div class="profile-img-container">
+                    <img src="https://z-cdn-media.chatglm.cn/files/3015e425-a28d-4d6a-83b6-796e499a6815_1757187544783.jpg?auth_key=1788852583-649db1e409ea4699a66efc26a451e017-0-a1f309e004c7f572f5aa2f1670835be9" alt="Profile Picture" class="profile-img">
+                </div>
+                <!-- Profile titles in a single line -->
+                <div class="profile-titles">
+                    <p class="profile-title">B.Tech CSE Student</p>
+                    <p class="profile-title">CCNA Certified</p>
+                </div>
+            </div>
+            <div class="hero-text">
+                <p class="greeting">Hello, I'm</p>
+                <h1 class="name">Md Sahin Mollah</h1>
+                <div class="typewriter">
+                    <span id="typewriter-text"></span>
+                </div>
+                <!-- Button group in a single line with Contact button first -->
+                <div class="button-group">
+                    <a href="mailto:mdsahinmollah5592@gmail.com" class="btn">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contact</span>
+                    </a>
+                    <a href="#" class="btn" id="resume-btn">
+                        <span>Resume</span>
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="social-icons">
+                <a href="https://github.com/mdsahinmollah" class="social-icon" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.youtube.com/@itsmemdsahin" class="social-icon" target="_blank">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://www.instagram.com/itsmemdsahin" class="social-icon" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/mdsahinmollah" class="social-icon" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-user"></i> <span id="about-title">About Me</span></h2>
+            <div class="about-content">
+                <div class="bio-typewriter">
+                    <span id="bio-typewriter-text"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-cogs"></i> <span id="skills-title">My Skills</span></h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3 class="skill-name">Computer Networking</h3>
+                    <p class="skill-description">Proficient in network protocols, configurations, and security with CCNA certification.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <h3 class="skill-name">Python Programming</h3>
+                    <p class="skill-description">Experience in developing applications and scripts using Python for various purposes.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fab fa-linux"></i>
+                    </div>
+                    <h3 class="skill-name">Linux Fundamentals</h3>
+                    <p class="skill-description">Knowledge of Linux operating system, command line, and system administration.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 class="skill-name">SQL Database</h3>
+                    <p class="skill-description">Experience in configuring and managing SQL databases for various applications.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3 class="skill-name">IIS Configuration</h3>
+                    <p class="skill-description">Skilled in configuring Internet Information Services for web hosting.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-file-excel"></i>
+                    </div>
+                    <h3 class="skill-name">Microsoft Excel</h3>
+                    <p class="skill-description">Proficient in using Excel for data analysis, reporting, and visualization.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-briefcase"></i> <span id="experience-title">Work Experience</span></h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Aug 2024 - July 2025</div>
+                        <h3 class="timeline-title">Technical Support Executive</h3>
+                        <div class="timeline-company">BIOTECH</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>Installation of E-Time Tracklight software</li>
+                                <li>Technical support for biometric systems</li>
+                                <li>Configuration of Web E-Time software</li>
+                                <li>Configuration of Internet Information Services (IIS)</li>
+                                <li>SQL database configuration</li>
+                                <li>License generation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Education Section -->
+    <section class="education" id="education">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-graduation-cap"></i> <span id="education-title">Education</span></h2>
+            <div class="education-grid">
+                <div class="education-card">
+                    <h3 class="education-degree">B.Tech Computer Science & Engineering</h3>
+                    <div class="education-school">Swami Vivekananda University</div>
+                    <div class="education-date">Pursuing</div>
+                </div>
+                <div class="education-card">
+                    <h3 class="education-degree">Diploma in Computer Science and Technology</h3>
+                    <div class="education-school">Bengal Institute of Technology</div>
+                    <div class="education-date">2021 - 2024</div>
+                </div>
+                <div class="education-card">
+                    <h3 class="education-degree">Secondary and Higher Secondary</h3>
+                    <div class="education-school">Mohadevpur High School</div>
+                    <!-- Removed the date element for Secondary and Higher Secondary -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-envelope"></i> <span id="contact-title">Get In Touch</span></h2>
+            <div class="contact-container">
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <h2>Let's Connect</h2>
+                        <p>Feel free to reach out to me for any inquiries or opportunities</p>
+                    </div>
+                    <div class="contact-info">
+                        <a href="tel:+919144115592" class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-info-text">
+                                <h3>Phone</h3>
+                                <p>+91 9144115592</p>
+                            </div>
+                        </a>
+                        <a href="mailto:mdsahinmollah5592@gmail.com" class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-info-text">
+                                <h3>Email</h3>
+                                <p>mdsahinmollah5592@gmail.com</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/mdsahinmollah" class="social-link" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@itsmemdsahin" class="social-link" target="_blank">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://www.instagram.com/itsmemdsahin" class="social-link" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/mdsahinmollah" class="social-link" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                    <div class="contact-cta">
+                        <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <p class="footer-text">&copy; 2025 Md Sahin Mollah ❤️. All Rights Reserved.</p>
+    </footer>
+    <!-- Resume Modal -->
+    <div class="modal" id="resume-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">My Resume</h3>
+                <button class="close-btn" id="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="resume-container" id="resume-content">
+                    <div class="resume-header">
+                        <div>
+                            <h1 class="resume-name">Md Sahin Mollah</h1>
+                            <p class="resume-title">B.Tech CSE Student | Technical Support Executive</p>
+                        </div>
+                        <div class="resume-contact">
+                            <p><i class="fas fa-phone"></i> +91 9144115592</p>
+                            <p><i class="fas fa-envelope"></i> mdsahinmollah5592@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="resume-section">
+                        <h2 class="resume-section-title">About Me</h2>
+                        <p>B.Tech CSE student with expertise in computer networking, Python, and Linux. Completed CCNA certification and passionate about cloud security and architecture.</p>
+                    </div>
+                    <div class="resume-section">
+                        <h2 class="resume-section-title">Work Experience</h2>
+                        <div class="resume-item">
+                            <div class="resume-item-title">
+                                <span>Technical Support Executive</span>
+                                <span class="resume-item-date">Aug 2024 - July 2025</span>
+                            </div>
+                            <div class="resume-item-subtitle">BIOTECH</div>
+                            <div class="resume-item-description">
+                                <ul>
+                                    <li>Installation of E-Time Tracklight software</li>
+                                    <li>Technical support for biometric systems</li>
+                                    <li>Configuration of Web E-Time software</li>
+                                    <li>Configuration of Internet Information Services (IIS)</li>
+                                    <li>SQL database configuration</li>
+                                    <li>License generation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="resume-section">
+                        <h2 class="resume-section-title">Education</h2>
+                        <div class="resume-item">
+                            <div class="resume-item-title">
+                                <span>B.Tech Computer Science & Engineering</span>
+                                <span class="resume-item-date">Pursuing</span>
+                            </div>
+                            <div class="resume-item-subtitle">Swami Vivekananda University</div>
+                        </div>
+                        <div class="resume-item">
+                            <div class="resume-item-title">
+                                <span>Diploma in Computer Science and Technology</span>
+                                <span class="resume-item-date">2021 - 2024</span>
+                            </div>
+                            <div class="resume-item-subtitle">Bengal Institute of Technology</div>
+                        </div>
+                        <div class="resume-item">
+                            <div class="resume-item-title">
+                                <span>Secondary and Higher Secondary</span>
+                                <!-- Removed the date element for Secondary and Higher Secondary -->
+                            </div>
+                            <div class="resume-item-subtitle">Mohadevpur High School</div>
+                        </div>
+                    </div>
+                    <div class="resume-section">
+                        <h2 class="resume-section-title">Skills</h2>
+                        <div class="resume-skills">
+                            <span class="resume-skill">Computer Networking</span>
+                            <span class="resume-skill">Python Programming</span>
+                            <span class="resume-skill">Linux Fundamentals</span>
+                            <span class="resume-skill">E-Time Tracklight</span>
+                            <span class="resume-skill">Microsoft Excel</span>
+                            <span class="resume-skill">CCNA Certification</span>
+                            <span class="resume-skill">SQL Database</span>
+                            <span class="resume-skill">IIS Configuration</span>
+                        </div>
+                    </div>
+                    <div class="resume-section">
+                        <h2 class="resume-section-title">Languages</h2>
+                        <div class="resume-skills">
+                            <span class="resume-skill">Bengali</span>
+                            <span class="resume-skill">Hindi</span>
+                            <span class="resume-skill">English</span>
+                        </div>
+                    </div>
+                    <div class="resume-section">
+                        <h2 class="resume-section-title">Hobbies</h2>
+                        <div class="resume-skills">
+                            <span class="resume-skill">Learning new things</span>
+                            <span class="resume-skill">Listening to Music</span>
+                            <span class="resume-skill">Roof Gardening</span>
+                            <span class="resume-skill">Traveling</span>
+                            <span class="resume-skill">Photography</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Download Options -->
+                <div class="download-options">
+                    <div class="download-option" id="download-html">
+                        <i class="fas fa-file-code"></i>
+                        <span>HTML</span>
+                    </div>
+                    <div class="download-option" id="download-pdf">
+                        <i class="fas fa-file-pdf"></i>
+                        <span>PDF</span>
+                    </div>
+                    <div class="download-option" id="view-fullscreen">
+                        <i class="fas fa-expand"></i>
+                        <span>View</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Download Notification -->
+    <div class="download-notification" id="download-notification">
+        <span id="notification-message">Resume downloaded successfully!</span>
+        <button class="close-notification" id="close-notification">&times;</button>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script>
+        // Generate Binary Rain
+        function generateBinaryRain() {
+            const binaryRain = document.querySelector('.binary-rain');
+            const columns = Math.floor(window.innerWidth / 20);
+            
+            for (let i = 0; i < columns; i++) {
+                const column = document.createElement('div');
+                column.className = 'binary-column';
+                column.style.left = `${i * 20}px`;
+                column.style.animationDuration = `${Math.random() * 10 + 10}s`;
+                column.style.animationDelay = `${Math.random() * 5}s`;
+                
+                let binaryText = '';
+                const height = Math.floor(Math.random() * 20 + 10);
+                for (let j = 0; j < height; j++) {
+                    binaryText += Math.random() > 0.5 ? '1' : '0';
+                    if (j < height - 1) binaryText += '<br>';
+                }
+                
+                column.innerHTML = binaryText;
+                binaryRain.appendChild(column);
+            }
+        }
+        
+        // Typewriter Effect for Name
+        const nameText = "Md Sahin Mollah";
+        let nameCharIndex = 0;
+        let nameTypeSpeed = 150;
+        
+        function nameTypeWriter() {
+            const nameElement = document.querySelector('.name');
+            
+            if (nameCharIndex < nameText.length) {
+                nameElement.textContent = nameText.substring(0, nameCharIndex + 1);
+                nameCharIndex++;
+                nameTypeSpeed = 150;
+            } else {
+                // Name is fully typed, start subtitle typewriter
+                subtitleTypeWriter();
+                return;
+            }
+            
+            setTimeout(nameTypeWriter, nameTypeSpeed);
+        }
+        
+        // Typewriter Effect for Subtitle
+        const subtitleTexts = [
+            "B.Tech CSE Student",
+            "Computer Networking Enthusiast",
+            "Python Programmer",
+            "Linux Fundamentals Expert",
+            "CCNA Certified"
+        ];
+        
+        let subtitleIndex = 0;
+        let subtitleCharIndex = 0;
+        let subtitleIsDeleting = false;
+        let subtitleTypeSpeed = 100;
+        
+        function subtitleTypeWriter() {
+            const currentSubtitle = subtitleTexts[subtitleIndex];
+            const typewriterElement = document.getElementById('typewriter-text');
+            
+            if (subtitleIsDeleting) {
+                typewriterElement.textContent = currentSubtitle.substring(0, subtitleCharIndex - 1);
+                subtitleCharIndex--;
+                subtitleTypeSpeed = 50;
+            } else {
+                typewriterElement.textContent = currentSubtitle.substring(0, subtitleCharIndex + 1);
+                subtitleCharIndex++;
+                subtitleTypeSpeed = 100;
+            }
+            
+            if (!subtitleIsDeleting && subtitleCharIndex === currentSubtitle.length) {
+                subtitleIsDeleting = true;
+                subtitleTypeSpeed = 2000; // Pause before deleting
+            } else if (subtitleIsDeleting && subtitleCharIndex === 0) {
+                subtitleIsDeleting = false;
+                subtitleIndex = (subtitleIndex + 1) % subtitleTexts.length;
+                subtitleTypeSpeed = 500; // Pause before typing next text
+            }
+            
+            setTimeout(subtitleTypeWriter, subtitleTypeSpeed);
+        }
+        
+        // Typewriter Effect for Bio Section
+        const bioTexts = [
+            "I am a B.Tech CSE student at Swami Vivekananda University with a strong passion for computer networking, Python programming, and Linux fundamentals.",
+            "I have completed my CCNA certification and am enthusiastic about cloud security and architecture.",
+            "As a Technical Support Executive at BIOTECH, I gained hands-on experience in installing and configuring E-Time Tracklight software, providing technical support for biometric systems, and managing SQL databases.",
+            "I am always eager to learn new technologies and apply my skills to solve real-world problems.",
+            "When I'm not studying or working, I enjoy listening to music, roof gardening, traveling, and photography. These hobbies help me maintain a balanced life and spark my creativity."
+        ];
+        
+        let bioTextIndex = 0;
+        let bioCharIndex = 0;
+        let bioIsDeleting = false;
+        let bioTypeSpeed = 50;
+        
+        function bioTypeWriter() {
+            const currentBioText = bioTexts[bioTextIndex];
+            const bioTypewriterElement = document.getElementById('bio-typewriter-text');
+            
+            if (bioIsDeleting) {
+                bioTypewriterElement.textContent = currentBioText.substring(0, bioCharIndex - 1);
+                bioCharIndex--;
+                bioTypeSpeed = 25;
+            } else {
+                bioTypewriterElement.textContent = currentBioText.substring(0, bioCharIndex + 1);
+                bioCharIndex++;
+                bioTypeSpeed = 50;
+            }
+            
+            if (!bioIsDeleting && bioCharIndex === currentBioText.length) {
+                bioIsDeleting = true;
+                bioTypeSpeed = 3000; // Pause before deleting
+            } else if (bioIsDeleting && bioCharIndex === 0) {
+                bioIsDeleting = false;
+                bioTextIndex = (bioTextIndex + 1) % bioTexts.length;
+                bioTypeSpeed = 1000; // Pause before typing next text
+            }
+            
+            setTimeout(bioTypeWriter, bioTypeSpeed);
+        }
+        
+        // Typewriter Effect for Section Titles
+        const sectionTitles = [
+            { id: 'about-title', texts: ['About Me', 'Who I Am', 'My Story'] },
+            { id: 'skills-title', texts: ['My Skills', 'Expertise', 'What I Do'] },
+            { id: 'experience-title', texts: ['Work Experience', 'Professional Journey', 'Career Path'] },
+            { id: 'education-title', texts: ['Education', 'Academic Background', 'Learning Journey'] },
+            { id: 'contact-title', texts: ['Get In Touch', 'Contact Me', 'Reach Out'] }
+        ];
+        
+        sectionTitles.forEach(section => {
+            let titleIndex = 0;
+            let titleCharIndex = 0;
+            let titleIsDeleting = false;
+            let titleTypeSpeed = 150;
+            
+            function titleTypeWriter() {
+                const currentTitleText = section.texts[titleIndex];
+                const titleElement = document.getElementById(section.id);
+                
+                if (titleIsDeleting) {
+                    titleElement.textContent = currentTitleText.substring(0, titleCharIndex - 1);
+                    titleCharIndex--;
+                    titleTypeSpeed = 75;
+                } else {
+                    titleElement.textContent = currentTitleText.substring(0, titleCharIndex + 1);
+                    titleCharIndex++;
+                    titleTypeSpeed = 150;
+                }
+                
+                if (!titleIsDeleting && titleCharIndex === currentTitleText.length) {
+                    titleIsDeleting = true;
+                    titleTypeSpeed = 3000; // Pause before deleting
+                } else if (titleIsDeleting && titleCharIndex === 0) {
+                    titleIsDeleting = false;
+                    titleIndex = (titleIndex + 1) % section.texts.length;
+                    titleTypeSpeed = 1000; // Pause before typing next text
+                }
+                
+                setTimeout(titleTypeWriter, titleTypeSpeed);
+            }
+            
+            // Start typewriter effect for each section title with a delay
+            setTimeout(titleTypeWriter, 500);
+        });
+        
+        // Dark/Light Mode Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        const icon = themeToggle.querySelector('i');
+        
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            body.setAttribute('data-theme', 'dark');
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.setAttribute('data-theme', 'light');
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+        
+        // Resume Modal
+        const resumeBtn = document.getElementById('resume-btn');
+        const resumeModal = document.getElementById('resume-modal');
+        const closeModal = document.getElementById('close-modal');
+        
+        resumeBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            resumeModal.style.display = 'flex';
+        });
+        
+        closeModal.addEventListener('click', () => {
+            resumeModal.style.display = 'none';
+        });
+        
+        window.addEventListener('click', (e) => {
+            if (e.target === resumeModal) {
+                resumeModal.style.display = 'none';
+            }
+        });
+        
+        // Show notification
+        function showNotification(message) {
+            const notification = document.getElementById('download-notification');
+            const messageElement = document.getElementById('notification-message');
+            
+            messageElement.textContent = message;
+            notification.classList.add('show');
+            
+            // Auto hide after 3 seconds
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+        
+        // Close notification
+        document.getElementById('close-notification').addEventListener('click', () => {
+            document.getElementById('download-notification').classList.remove('show');
+        });
+        
+        // Function to check if the device is mobile
+        function isMobile() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+        
+        // Function to download a file
+        function downloadFile(content, filename, contentType) {
+            const blob = new Blob([content], { type: contentType });
+            const url = URL.createObjectURL(blob);
+            
+            // Create a temporary link element
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = filename;
+            
+            // For mobile devices, we need to handle this differently
+            if (isMobile()) {
+                // Try to trigger the download
+                try {
+                    // Create a new window/tab
+                    const newWindow = window.open(url, '_blank');
+                    
+                    if (newWindow) {
+                        // If the window opened successfully, show a message
+                        showNotification('Resume opened in a new tab. Save it from there.');
+                        
+                        // Close the window after a short delay
+                        setTimeout(() => {
+                            newWindow.close();
+                        }, 1000);
+                    } else {
+                        // If popup was blocked, show instructions
+                        showNotification('Please allow popups and try again.');
+                    }
+                } catch (e) {
+                    console.error('Error downloading file:', e);
+                    showNotification('Error downloading resume. Please try again.');
+                }
+            } else {
+                // For desktop, try the standard approach
+                try {
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    showNotification('Resume downloaded successfully!');
+                } catch (e) {
+                    console.error('Error downloading file:', e);
+                    showNotification('Error downloading resume. Please try again.');
+                }
+            }
+            
+            // Clean up
+            setTimeout(() => {
+                URL.revokeObjectURL(url);
+            }, 100);
+        }
+        
+        // Define the HTML content for the resume
+        const resumeHTML = `
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Md Sahin Mollah - Resume</title>
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+                
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                }
+                
+                body {
+                    font-family: 'Poppins', sans-serif;
+                    background-color: #ffffff;
+                    color: #333333;
+                    line-height: 1.6;
+                    padding: 20px;
+                }
+                
+                .resume-container {
+                    max-width: 800px;
+                    margin: 0 auto;
+                    background: #ffffff;
+                    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+                    padding: 40px;
+                }
+                
+                .resume-header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 30px;
+                    border-bottom: 2px solid #6a11cb;
+                    padding-bottom: 20px;
+                }
+                
+                .resume-name {
+                    font-size: 32px;
+                    font-weight: 700;
+                    color: #6a11cb;
+                    margin: 0;
+                }
+                
+                .resume-title {
+                    font-size: 18px;
+                    color: #555;
+                    margin: 5px 0 0;
+                }
+                
+                .resume-contact {
+                    text-align: right;
+                }
+                
+                .resume-contact p {
+                    margin: 0 0 5px;
+                    font-size: 14px;
+                }
+                
+                .resume-section {
+                    margin-bottom: 30px;
+                }
+                
+                .resume-section-title {
+                    font-size: 20px;
+                    font-weight: 600;
+                    color: #6a11cb;
+                    margin-bottom: 15px;
+                    text-transform: uppercase;
+                    border-bottom: 1px solid #eee;
+                    padding-bottom: 5px;
+                }
+                
+                .resume-item {
+                    margin-bottom: 20px;
+                }
+                
+                .resume-item-title {
+                    font-size: 16px;
+                    font-weight: 600;
+                    display: flex;
+                    justify-content: space-between;
+                }
+                
+                .resume-item-date {
+                    font-size: 14px;
+                    color: #777;
+                }
+                
+                .resume-item-subtitle {
+                    font-size: 14px;
+                    color: #6a11cb;
+                    margin: 0 0 5px;
+                }
+                
+                .resume-item-description {
+                    font-size: 14px;
+                    margin: 5px 0 0;
+                    padding-left: 20px;
+                }
+                
+                .resume-item-description ul {
+                    list-style-type: disc;
+                    padding-left: 20px;
+                    margin: 0;
+                }
+                
+                .resume-item-description li {
+                    margin-bottom: 5px;
+                }
+                
+                .resume-skills {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 10px;
+                    margin: 0;
+                    padding: 0;
+                    list-style: none;
+                }
+                
+                .resume-skill {
+                    background: #f5f5f5;
+                    padding: 5px 10px;
+                    border-radius: 20px;
+                    font-size: 14px;
+                }
+                
+                @media print {
+                    body {
+                        background: white;
+                        padding: 0;
+                    }
+                    
+                    .resume-container {
+                        box-shadow: none;
+                        padding: 20px;
+                        max-width: 100%;
+                    }
+                }
+                
+                @page {
+                    size: A4;
+                    margin: 0;
+                }
+                
+                /* Mobile-specific styles */
+                @media (max-width: 768px) {
+                    .resume-header {
+                        flex-direction: column;
+                        text-align: center;
+                    }
+                    
+                    .resume-contact {
+                        text-align: center;
+                        margin-top: 15px;
+                    }
+                    
+                    .resume-item-title {
+                        flex-direction: column;
+                    }
+                    
+                    .resume-item-date {
+                        margin-top: 5px;
+                    }
+                }
+            </style>
+        </head>
+        <body>
+            <div class="resume-container">
+                <div class="resume-header">
+                    <div>
+                        <h1 class="resume-name">Md Sahin Mollah</h1>
+                        <p class="resume-title">B.Tech CSE Student | Technical Support Executive</p>
+                    </div>
+                    <div class="resume-contact">
+                        <p><i class="fas fa-phone"></i> +91 9144115592</p>
+                        <p><i class="fas fa-envelope"></i> mdsahinmollah5592@gmail.com</p>
+                    </div>
+                </div>
+                <div class="resume-section">
+                    <h2 class="resume-section-title">About Me</h2>
+                    <p>B.Tech CSE student with expertise in computer networking, Python, and Linux. Completed CCNA certification and passionate about cloud security and architecture.</p>
+                </div>
+                <div class="resume-section">
+                    <h2 class="resume-section-title">Work Experience</h2>
+                    <div class="resume-item">
+                        <div class="resume-item-title">
+                            <span>Technical Support Executive</span>
+                            <span class="resume-item-date">Aug 2024 - July 2025</span>
+                        </div>
+                        <div class="resume-item-subtitle">BIOTECH</div>
+                        <div class="resume-item-description">
+                            <ul>
+                                <li>Installation of E-Time Tracklight software</li>
+                                <li>Technical support for biometric systems</li>
+                                <li>Configuration of Web E-Time software</li>
+                                <li>Configuration of Internet Information Services (IIS)</li>
+                                <li>SQL database configuration</li>
+                                <li>License generation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="resume-section">
+                    <h2 class="resume-section-title">Education</h2>
+                    <div class="resume-item">
+                        <div class="resume-item-title">
+                            <span>B.Tech Computer Science & Engineering</span>
+                            <span class="resume-item-date">Pursuing</span>
+                        </div>
+                        <div class="resume-item-subtitle">Swami Vivekananda University</div>
+                    </div>
+                    <div class="resume-item">
+                        <div class="resume-item-title">
+                            <span>Diploma in Computer Science and Technology</span>
+                            <span class="resume-item-date">2021 - 2024</span>
+                        </div>
+                        <div class="resume-item-subtitle">Bengal Institute of Technology</div>
+                    </div>
+                    <div class="resume-item">
+                        <div class="resume-item-title">
+                            <span>Secondary and Higher Secondary</span>
+                        </div>
+                        <div class="resume-item-subtitle">Mohadevpur High School</div>
+                    </div>
+                </div>
+                <div class="resume-section">
+                    <h2 class="resume-section-title">Skills</h2>
+                    <ul class="resume-skills">
+                        <li class="resume-skill">Computer Networking</li>
+                        <li class="resume-skill">Python Programming</li>
+                        <li class="resume-skill">Linux Fundamentals</li>
+                        <li class="resume-skill">E-Time Tracklight</li>
+                        <li class="resume-skill">Microsoft Excel</li>
+                        <li class="resume-skill">CCNA Certification</li>
+                        <li class="resume-skill">SQL Database</li>
+                        <li class="resume-skill">IIS Configuration</li>
+                    </ul>
+                </div>
+                <div class="resume-section">
+                    <h2 class="resume-section-title">Languages</h2>
+                    <ul class="resume-skills">
+                        <li class="resume-skill">Bengali</li>
+                        <li class="resume-skill">Hindi</li>
+                        <li class="resume-skill">English</li>
+                    </ul>
+                </div>
+                <div class="resume-section">
+                    <h2 class="resume-section-title">Hobbies</h2>
+                    <ul class="resume-skills">
+                        <li class="resume-skill">Learning new things</li>
+                        <li class="resume-skill">Listening to Music</li>
+                        <li class="resume-skill">Roof Gardening</li>
+                        <li class="resume-skill">Traveling</li>
+                        <li class="resume-skill">Photography</li>
+                    </ul>
+                </div>
+            </div>
+        </body>
+        </html>
+        `;
+        
+        // Download HTML
+        document.getElementById('download-html').addEventListener('click', (e) => {
+            e.preventDefault();
+            downloadFile(resumeHTML, 'Md_Sahin_Mollah_Resume.html', 'text/html');
+        });
+        
+        // Download PDF
+        document.getElementById('download-pdf').addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // Show loading message
+            showNotification('Generating PDF...');
+            
+            const resumeElement = document.getElementById('resume-content');
+            
+            html2canvas(resumeElement, {
+                scale: 2,
+                useCORS: true,
+                allowTaint: true,
+                backgroundColor: '#ffffff'
+            }).then(canvas => {
+                const { jsPDF } = window.jspdf;
+                const pdf = new jsPDF('p', 'mm', 'a4');
+                
+                const imgData = canvas.toDataURL('image/png');
+                const pdfWidth = pdf.internal.pageSize.getWidth();
+                const pdfHeight = pdf.internal.pageSize.getHeight();
+                const imgWidth = canvas.width;
+                const imgHeight = canvas.height;
+                const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
+                const imgX = (pdfWidth - imgWidth * ratio) / 2;
+                const imgY = 10;
+                
+                pdf.addImage(imgData, 'PNG', imgX, imgY, imgWidth * ratio, imgHeight * ratio);
+                
+                // For mobile, we'll open in a new window instead of directly downloading
+                if (isMobile()) {
+                    const pdfData = pdf.output('datauristring');
+                    const newWindow = window.open(pdfData, '_blank');
+                    
+                    if (newWindow) {
+                        showNotification('PDF opened in a new tab. Save it from there.');
+                    } else {
+                        showNotification('Please allow popups and try again.');
+                    }
+                } else {
+                    pdf.save('Md_Sahin_Mollah_Resume.pdf');
+                    showNotification('PDF downloaded successfully!');
+                }
+            }).catch(error => {
+                console.error('Error generating PDF:', error);
+                showNotification('Error generating PDF. Please try HTML format instead.');
+            });
+        });
+        
+        // View Fullscreen
+        document.getElementById('view-fullscreen').addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // Create a new window with the resume content
+            const newWindow = window.open('', '_blank');
+            
+            if (newWindow) {
+                newWindow.document.write(resumeHTML);
+                newWindow.document.close();
+                showNotification('Resume opened in a new tab.');
+            } else {
+                showNotification('Please allow popups and try again.');
+            }
+        });
+        
+        // Sticky Header
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('sticky');
+            } else {
+                header.classList.remove('sticky');
+            }
+        });
+        
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', () => {
+            generateBinaryRain();
+            nameTypeWriter();
+            bioTypeWriter();
+        });
+    </script>
+</body>
+</html>
